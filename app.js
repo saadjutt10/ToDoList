@@ -13,7 +13,7 @@ app.use(express.static("public"))
 
 
 //Open the mongoose connection
-mongoose.connect('mongodb+srv://saad:saadstar1@cluster0.v0rcebs.mongodb.net/ToDoListDB');
+mongoose.connect(process.env.MONGO_db);
 
 //Schemas
 const itemSchema = mongoose.Schema({

@@ -1,0 +1,30 @@
+<%- include ("header") -%>
+
+
+    <div class="box" id="heading">
+        <h1>
+            <%=colName %>
+    </div>
+    </h1>
+    <div class="box">
+        <% taskList.forEach(function(item){ %>
+            <form class="item" method="post" action="/delete">
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%= item._id%>" onChange="this.form.submit()">
+                    <p>
+                        <%= item.name %>
+                    </p>
+                    <input type="hidden" name="collectionName" value="<%= colName%>" >
+                </div>
+            </form>
+
+            <% }) %>
+                <form class="item" method="post" action="/">
+                    <input type="text" name="taskList" placeholder="Enter new Task" autocomplete="off">
+                    <button class="btn btn-primary w-100 py-2" type="submit" name="list"
+                        value="<%=colName %>">+</button>
+                </form>
+
+    </div>
+
+    <%- include ("footer") -%>
